@@ -1,38 +1,136 @@
-.App {
+/* Basic reset and layout */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #282c34 0%, #4c6a92 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Game container styling */
+.game {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  color: white;
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100%; /* Take full height of the screen */
+}
+
+/* Background text styling */
+.background-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 200px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.3;
+  filter: blur(2px);
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Difficulty level styling */
+.difficulty-label {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff7e5f;
+  margin-right: 10px;
+}
+
+.difficulty-select {
+  font-size: 18px;
+  padding: 10px;
+  border: 2px solid #ff7e5f;
+  border-radius: 5px;
+  background-color: #feb47b;
   color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.difficulty-select:focus {
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Board and square styling */
+.status {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff7e5f;
+  padding: 10px;
+  background-color: #282c34;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(50, 87, 255, 0.5); /* Glow effect */
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-gap: 5px;
+  margin: 0 auto;
+}
+
+.square {
+  background-color: #61dafb;
+  border: 2px solid #282c34;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.square:hover {
+  background-color: #ff7e5f;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+}
+
+.square:active {
+  transform: scale(0.95); /* Slight shrink effect when clicked */
+}
+
+/* Restart button styling */
+.restart {
+  background-color: #ce0f0fc9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.restart:hover {
+  background-color: #ff7043;
+}
+
+.restart:active {
+  transform: scale(0.95); /* Button shrink effect on click */
 }
