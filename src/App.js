@@ -134,7 +134,7 @@ function App() {
 
   return (
     <div className="game">
-      <div className="background-text">Haile</div>
+      <div className="background-text">Haile Games</div>
       <h1>Tic-Tac-Toe</h1>
       <div className="difficulty-label">Select Difficulty:</div>
       <select

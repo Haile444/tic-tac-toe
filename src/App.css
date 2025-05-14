@@ -1,10 +1,12 @@
 /* Basic reset and layout */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +27,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%; /* Take full height of the screen */
+  height: 100%;
 }
 
 /* Background text styling */
@@ -40,8 +42,8 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  opacity: 0.3;
-  filter: blur(2px);
+  opacity: 0.25;
+  filter: blur(3px);
   z-index: 1;
   user-select: none;
   pointer-events: none;
@@ -57,19 +59,25 @@ body {
 
 .difficulty-select {
   font-size: 18px;
-  padding: 10px;
+  padding: 10px 15px;
   border: 2px solid #ff7e5f;
   border-radius: 5px;
   background-color: #feb47b;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
   margin-bottom: 20px;
 }
 
+.difficulty-select:hover {
+  background-color: #ff7e5f;
+  color: #fff;
+}
+
 .difficulty-select:focus {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  outline: none;
 }
 
 /* Board and square styling */
@@ -78,16 +86,16 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: #ff7e5f;
-  padding: 10px;
+  padding: 10px 15px;
   background-color: #282c34;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(50, 87, 255, 0.5); /* Glow effect */
+  box-shadow: 0 0 15px rgba(50, 87, 255, 0.5);
 }
 
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 60px);
-  grid-gap: 5px;
+  grid-template-columns: repeat(3, 70px);
+  grid-gap: 10px;
   margin: 0 auto;
 }
 
@@ -96,23 +104,22 @@ body {
   border: 2px solid #282c34;
   font-size: 24px;
   font-weight: bold;
-  padding: 10px;
   text-align: center;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .square:hover {
   background-color: #ff7e5f;
   color: #fff;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .square:active {
-  transform: scale(0.95); /* Slight shrink effect when clicked */
+  transform: scale(0.9);
 }
 
 /* Restart button styling */
@@ -120,17 +127,20 @@ body {
   background-color: #ce0f0fc9;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 15px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .restart:hover {
   background-color: #ff7043;
+  transform: scale(1.05);
 }
 
 .restart:active {
-  transform: scale(0.95); /* Button shrink effect on click */
+  transform: scale(0.95);
 }
